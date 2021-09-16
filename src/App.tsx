@@ -1,56 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { useAppSelector } from "app/hooks";
+
+import { selectPlayers, selectStats } from "features/chess/chessSlice";
+
+import { Table } from "features/chess/Table";
+import { Stats } from "features/chess/Stats";
+import { Controls } from "features/chess/Controls";
 
 function App() {
+  const players = useAppSelector(selectPlayers);
+  const stats = useAppSelector(selectStats);
+  console.log(stats);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="app">
+      <div className="app__chess">
+        <div className="app__playerA">
+          <h4>PLAYER A</h4>
+          <span style={{ color: `${players[0].alive ? "white" : "red"}` }}>
+            &#9822;
+          </span>
+          <span style={{ color: `${players[2].alive ? "white" : "red"}` }}>
+            &#9815;
+          </span>
+          <span style={{ color: `${players[1].alive ? "white" : "red"}` }}>
+            &#9819;
+          </span>
+        </div>
+        <Table />
+        <div className="app__playerB">
+          <h4>PLAYER B</h4>
+          <span style={{ color: `${players[3].alive ? "black" : "red"}` }}>
+            &#9822;
+          </span>
+          <span style={{ color: `${players[5].alive ? "black" : "red"}` }}>
+            &#9815;
+          </span>
+          <span style={{ color: `${players[4].alive ? "black" : "red"}` }}>
+            &#9819;
+          </span>
+        </div>
+      </div>
+      <div className="app__controls">
+        <Controls />
+      </div>
+      <div className="app__stats">{stats.length !== 0 && <Stats />}</div>
     </div>
   );
 }

@@ -1,0 +1,37 @@
+.table {
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-collapse: collapse;
+  background: #baca44;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  td {
+    width: 50px;
+    height: 50px;
+  }
+
+  tr:nth-child(odd) td:nth-child(even),
+  tr:nth-child(even) td:nth-child(odd) {
+    background: #769656;
+  }
+
+  &__cell {
+    text-align: center;
+
+    span {
+      color: white;
+      font-size: 40px;
+    }
+  }
+}
+.table-x {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  grid-gap: 2.3rem;
+  margin-left: -12px;
+}
+.table-y {
+  display: flex;
+  justify-content: space-between;
+}

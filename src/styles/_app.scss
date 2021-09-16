@@ -1,0 +1,29 @@
+.app {
+  margin: 20px 0 20px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  grid-gap: 2rem;
+
+  &__chess {
+    display: flex;
+    grid-gap: 10rem;
+  }
+  &__playerA {
+    text-align: center;
+    span {
+      font-size: 60px;
+    }
+  }
+  &__playerB {
+    text-align: center;
+    span {
+      color: rgb(255, 255, 255);
+      font-size: 60px;
+    }
+  }
+  &__stats {
+  }
+  &__controls {
+  }
+}
