@@ -48,9 +48,6 @@ export const Controls = () => {
   };
 
   const chessSimulation = () => {
-    setPlayerB(null);
-    setPlayerA(null);
-
     if (stats.length >= 5) {
       dispatch(optimizeStats());
     }
