@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppSelector } from "app/hooks";
 
 import { boardPositionsX, boardPositionsY } from "./boardPositions";
@@ -11,7 +10,7 @@ export const Table = () => {
     <div className="table-wrapper">
       <div className="table-x">
         {boardPositionsX.map((item) => (
-          <span>{item}</span>
+          <span key={item}>{item}</span>
         ))}
       </div>
       <table className="table">
@@ -46,9 +45,8 @@ export const Table = () => {
         </tbody>
       </table>
       <div className="table-y">
-        <span></span>
         {boardPositionsY.map((item) => (
-          <span>{item}</span>
+          <span key={item}>{item}</span>
         ))}
       </div>
     </div>

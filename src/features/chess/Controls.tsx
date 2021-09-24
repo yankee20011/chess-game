@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   randomizeArray,
   knightLogic,
@@ -47,9 +47,6 @@ export const Controls = () => {
   };
 
   const chessSimulation = () => {
-    // setPlayerA(players![randomNumber(0, 2)]);
-    // setPlayerB(players![randomNumber(2, 5)]);
-
     if (stats.length >= 5) {
       dispatch(optimizeStats());
     }
@@ -78,7 +75,6 @@ export const Controls = () => {
             })
           );
           dispatch(setNewMove({ index: 0, position: randomMove }));
-          // setPlayerA(null);
           setMovingPlayer("B");
         } else if (playerA?.name === "bishop") {
           const availablePositions = bishopLogic(playerA.position);
@@ -98,7 +94,6 @@ export const Controls = () => {
             })
           );
           dispatch(setNewMove({ index: 2, position: randomMove }));
-          // setPlayerA(null);
           setMovingPlayer("B");
         } else if (playerA?.name === "queen") {
           const availablePositions = queenLogic(playerA.position);
@@ -118,7 +113,6 @@ export const Controls = () => {
             })
           );
           dispatch(setNewMove({ index: 1, position: randomMove }));
-          // setPlayerA(null);
           setMovingPlayer("B");
         }
       }
@@ -147,7 +141,6 @@ export const Controls = () => {
             })
           );
           dispatch(setNewMove({ index: 3, position: randomMove }));
-          // setPlayerB(null);
           setMovingPlayer("A");
         } else if (playerB?.name === "bishop") {
           const availablePositions = bishopLogic(playerB.position);
@@ -168,7 +161,6 @@ export const Controls = () => {
             })
           );
           dispatch(setNewMove({ index: 5, position: randomMove }));
-          // setPlayerB(null);
           setMovingPlayer("A");
         } else if (playerB?.name === "queen") {
           const availablePositions = queenLogic(playerB.position);
@@ -189,7 +181,6 @@ export const Controls = () => {
             })
           );
           dispatch(setNewMove({ index: 4, position: randomMove }));
-          // setPlayerB(null);
           setMovingPlayer("A");
         }
       }

@@ -10,7 +10,6 @@ import { Controls } from "features/chess/Controls";
 function App() {
   const players = useAppSelector(selectPlayers);
   const stats = useAppSelector(selectStats);
-  console.log(stats);
 
   return (
     <div className="app">

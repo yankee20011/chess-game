@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { ChessState, Stats } from "types";
+
 import { RootState } from "app/store";
 
 const initialState: ChessState = {
