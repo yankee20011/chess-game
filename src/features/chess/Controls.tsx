@@ -42,6 +42,7 @@ export const Controls = () => {
     dispatch(resetHistory());
     dispatch(resetKills());
     setIsGame(true);
+    setIsRunning(false);
     setPositions(randomizeArray(allPositions, 6));
     setMovingPlayer("A");
   };
