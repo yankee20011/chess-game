@@ -48,6 +48,9 @@ export const Controls = () => {
   };
 
   const chessSimulation = () => {
+    setPlayerB(null);
+    setPlayerA(null);
+
     if (stats.length >= 5) {
       dispatch(optimizeStats());
     }
@@ -64,6 +67,7 @@ export const Controls = () => {
           if (playerA?.position === playerB?.position) {
             dispatch(kill(playerB.index));
           }
+          dispatch(setNewMove({ index: 0, position: randomMove }));
           dispatch(
             setHistory({
               id: new Date().getTime(),
@@ -75,7 +79,6 @@ export const Controls = () => {
               oldStats: stats,
             })
           );
-          dispatch(setNewMove({ index: 0, position: randomMove }));
           setMovingPlayer("B");
         } else if (playerA?.name === "bishop") {
           const availablePositions = bishopLogic(playerA.position);
@@ -83,6 +86,7 @@ export const Controls = () => {
           if (playerA?.position === playerB?.position) {
             dispatch(kill(playerB.index));
           }
+          dispatch(setNewMove({ index: 2, position: randomMove }));
           dispatch(
             setHistory({
               id: new Date().getTime(),
@@ -94,7 +98,6 @@ export const Controls = () => {
               oldStats: stats,
             })
           );
-          dispatch(setNewMove({ index: 2, position: randomMove }));
           setMovingPlayer("B");
         } else if (playerA?.name === "queen") {
           const availablePositions = queenLogic(playerA.position);
@@ -102,6 +105,7 @@ export const Controls = () => {
           if (playerA?.position === playerB?.position) {
             dispatch(kill(playerB.index));
           }
+          dispatch(setNewMove({ index: 1, position: randomMove }));
           dispatch(
             setHistory({
               id: new Date().getTime(),
@@ -113,7 +117,6 @@ export const Controls = () => {
               oldStats: stats,
             })
           );
-          dispatch(setNewMove({ index: 1, position: randomMove }));
           setMovingPlayer("B");
         }
       }
@@ -129,7 +132,7 @@ export const Controls = () => {
           if (playerB?.position === playerA?.position) {
             dispatch(kill(playerA.index));
           }
-
+          dispatch(setNewMove({ index: 3, position: randomMove }));
           dispatch(
             setHistory({
               id: new Date().getTime(),
@@ -141,7 +144,6 @@ export const Controls = () => {
               oldStats: stats,
             })
           );
-          dispatch(setNewMove({ index: 3, position: randomMove }));
           setMovingPlayer("A");
         } else if (playerB?.name === "bishop") {
           const availablePositions = bishopLogic(playerB.position);
@@ -149,7 +151,7 @@ export const Controls = () => {
           if (playerB?.position === playerA?.position) {
             dispatch(kill(playerA.index));
           }
-
+          dispatch(setNewMove({ index: 5, position: randomMove }));
           dispatch(
             setHistory({
               id: new Date().getTime(),
@@ -161,7 +163,6 @@ export const Controls = () => {
               oldStats: stats,
             })
           );
-          dispatch(setNewMove({ index: 5, position: randomMove }));
           setMovingPlayer("A");
         } else if (playerB?.name === "queen") {
           const availablePositions = queenLogic(playerB.position);
@@ -169,7 +170,7 @@ export const Controls = () => {
           if (playerB?.position === playerA?.position) {
             dispatch(kill(playerA.index));
           }
-
+          dispatch(setNewMove({ index: 4, position: randomMove }));
           dispatch(
             setHistory({
               id: new Date().getTime(),
@@ -181,7 +182,6 @@ export const Controls = () => {
               oldStats: stats,
             })
           );
-          dispatch(setNewMove({ index: 4, position: randomMove }));
           setMovingPlayer("A");
         }
       }
